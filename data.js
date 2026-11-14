@@ -7,8 +7,8 @@ const NAV = [["home",["होम","Home","Home"]],["about",["हमारे ब
 
 /* ===== DONORS: image -> donate/1.png ... | date: YYYY-MM-DD ===== */
 const DONORS = [
+  { name: "अरविंद सिंह(बीरू), बबीना",      amount: 2100,  date: "2026-11-09", image: "donate/2.png" },
   { name: "प्रेम कुमार", amount: 2000, date: "2026-11-01", image: "donate/1.png" },
-  { name: "अरविंद सिंह, बबीना",      amount: 2100,  date: "2026-11-09", image: "donate/2.png" },
   { name: "दुर्गेश कुमार, कुरारा",       amount: 3100, date: "2026-11-05", image: "donate/3.png" },
 ];
 
