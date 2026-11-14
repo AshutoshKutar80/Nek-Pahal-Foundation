@@ -1,6 +1,6 @@
 /* ===== SETTINGS ===== */
-const PHONE = "91XXXXXXXXXX";   // WhatsApp number (91 ke saath)
-const UPI   = "nekpahal@upi";   // UPI ID
+const PHONE = "919196226530";   // WhatsApp number (91 ke saath)
+const UPI   = "coming soon";   // UPI ID
 
 /* Har text 3 bhasha me hai: [Hindi, English, Hinglish] */
 const NAV = [["home",["होम","Home","Home"]],["about",["हमारे बारे में","About","Hamare baare mein"]],["services",["सेवाएँ","Services","Sevayein"]],["donors",["दानदाता","Donors","Daandata"]],["distribute",["वितरण","Distribution","Vitran"]],["gallery",["गैलरी","Gallery","Gallery"]],["volunteer",["स्वयंसेवक","Volunteer","Swayamsevak"]],["donate",["दान करें","Donate","Daan karein"]],["contact",["संपर्क","Contact","Sampark"]]];
