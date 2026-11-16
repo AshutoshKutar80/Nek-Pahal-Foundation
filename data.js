@@ -38,7 +38,7 @@ const DISTS = [
             "Sanskar ke birthday ke shubh avsar par Nek Pahal Foundation dwara 14 buzurgon ko zaroori rashan samagri vitrit ki gayi."
         ],
         prefix: "birthday",
-        count: 5
+        count: 14
     },
 ];
 ];
