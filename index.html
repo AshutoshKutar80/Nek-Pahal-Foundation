@@ -681,6 +681,50 @@
       opacity: .8
     }
 
+    /* social + developer credit */
+    .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 6px 0 14px
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .92rem;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      padding: 8px 18px;
+      border-radius: 99px;
+      box-shadow: 0 4px 14px #0004;
+      transition: transform .2s
+    }
+
+    .social a:hover {
+      transform: translateY(-2px)
+    }
+
+    .dev-credit {
+      margin-top: 14px;
+      font-size: .8rem;
+      opacity: .85
+    }
+
+    .dev-credit a {
+      color: #ffd28a;
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .dev-credit a:hover {
+      text-decoration: underline
+    }
+
     /* floating button (mobile) */
     .fab {
       position: fixed;
@@ -1265,377 +1309,423 @@
     }
 
     /* ===== DONATION POPUP ===== */
-.don-pop {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: rgba(10, 18, 48, .72);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  animation: popFade .35s ease both;
-}
-.don-pop[hidden] { display: none; }
+    .don-pop {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(10, 18, 48, .72);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      animation: popFade .35s ease both;
+    }
 
-.don-pop-box {
-  position: relative;
-  background: var(--card);
-  color: var(--ink);
-  border-radius: 26px;
-  padding: 26px 22px 22px;
-  width: 100%;
-  max-width: 380px;
-  text-align: center;
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, .45),
-    0 0 0 4px rgba(242, 138, 29, .25);
-  overflow: hidden;
-  animation: popIn .55s cubic-bezier(.22, 1.1, .36, 1.15) both;
-}
+    .don-pop[hidden] {
+      display: none;
+    }
 
-/* Top ribbon (tri-color) */
-.don-pop-box::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 6px;
-  background: var(--tri);
-  background-size: 200% 100%;
-  animation: ribbon 3s linear infinite;
-}
-@keyframes ribbon {
-  0%   { background-position: 0% 0 }
-  100% { background-position: 200% 0 }
-}
+    .don-pop-box {
+      position: relative;
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 26px;
+      padding: 26px 22px 22px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow:
+        0 25px 60px rgba(0, 0, 0, .45),
+        0 0 0 4px rgba(242, 138, 29, .25);
+      overflow: hidden;
+      animation: popIn .55s cubic-bezier(.22, 1.1, .36, 1.15) both;
+    }
 
-/* soft glow blob */
-.don-pop-box::after {
-  content: "";
-  position: absolute;
-  width: 220px; height: 220px;
-  top: -90px; right: -90px;
-  background: radial-gradient(circle, #f28a1d55 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: glow 4s ease-in-out infinite;
-}
-@keyframes glow {
-  50% { transform: translate(-10px, 10px) scale(1.15) }
-}
+    .don-pop-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--tri);
+      background-size: 200% 100%;
+      animation: ribbon 3s linear infinite;
+    }
 
-.don-pop-x {
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 34px; height: 34px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--band);
-  color: var(--h);
-  font-size: 1.1rem;
-  cursor: pointer;
-  z-index: 2;
-  transition: background .2s, transform .2s;
-}
-.don-pop-x:hover { background: var(--saf); color: #fff; transform: rotate(90deg) }
+    @keyframes ribbon {
+      0% {
+        background-position: 0% 0
+      }
 
-.don-pop-emoji {
-  font-size: 2.4rem;
-  line-height: 1;
-  margin-bottom: 6px;
-  display: inline-block;
-  animation: wave 2s ease-in-out infinite;
-}
-@keyframes wave {
-  0%, 100% { transform: rotate(0) }
-  25% { transform: rotate(-12deg) }
-  75% { transform: rotate(12deg) }
-}
+      100% {
+        background-position: 200% 0
+      }
+    }
 
-.don-pop-box h2 {
-  font-size: 1.5rem;
-  color: var(--h);
-  margin-bottom: 4px;
-}
-.don-pop-box h2::after { display: none; }
+    .don-pop-box::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -90px;
+      right: -90px;
+      background: radial-gradient(circle, #f28a1d55 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: glow 4s ease-in-out infinite;
+    }
 
-.don-pop-sub {
-  color: var(--mut);
-  font-size: .9rem;
-  margin-bottom: 14px;
-}
+    @keyframes glow {
+      50% {
+        transform: translate(-10px, 10px) scale(1.15)
+      }
+    }
 
-.don-pop-qr {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 14px;
-  padding: 10px;
-  border-radius: 18px;
-  background: #fff;
-  border: 2px dashed var(--bd);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  animation: qrPulse 2.5s ease-in-out infinite;
-}
-@keyframes qrPulse {
-  0%, 100% { box-shadow: 0 0 0 0 #f28a1d00 }
-  50%      { box-shadow: 0 0 0 10px #f28a1d22 }
-}
-.don-pop-qr img {
-  width: 100%; height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-}
+    .don-pop-x {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--band);
+      color: var(--h);
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: background .2s, transform .2s;
+    }
 
-.don-pop-upi-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 0 auto 14px;
-  max-width: 300px;
-  background: var(--band);
-  border-radius: 99px;
-  padding: 6px 6px 6px 16px;
-}
-.don-pop-upi {
-  font: 700 1rem "Baloo 2", monospace;
-  color: var(--grn);
-  word-break: break-all;
-  flex: 1;
-  text-align: left;
-}
-.don-pop-copy {
-  border: 0;
-  background: var(--grn);
-  color: #fff;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform .2s, background .2s;
-}
-.don-pop-copy:hover { transform: scale(1.1) }
-.don-pop-copy.done { background: var(--saf) }
+    .don-pop-x:hover {
+      background: var(--saf);
+      color: #fff;
+      transform: rotate(90deg)
+    }
 
-.don-pop-btn {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-  animation: pulseBtn 2s ease-in-out infinite;
-}
-@keyframes pulseBtn {
-  0%, 100% { box-shadow: 0 6px 16px #f28a1d66 }
-  50%      { box-shadow: 0 6px 22px #f28a1dcc }
-}
+    .don-pop-emoji {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 6px;
+      display: inline-block;
+      animation: wave 2s ease-in-out infinite;
+    }
 
-.don-pop-skip {
-  background: none;
-  border: 0;
-  color: var(--mut);
-  font-size: .82rem;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 4px 8px;
-}
-.don-pop-skip:hover { color: var(--h) }
+    @keyframes wave {
 
-/* Popup keyframes */
-@keyframes popFade {
-  from { opacity: 0 }
-  to   { opacity: 1 }
-}
-@keyframes popIn {
-  0%   { opacity: 0; transform: translateY(40px) scale(.85) }
-  100% { opacity: 1; transform: translateY(0) scale(1) }
-}
+      0%,
+      100% {
+        transform: rotate(0)
+      }
 
-/* Mobile tweak */
-@media (max-width: 400px) {
-  .don-pop-box { padding: 22px 16px 18px; border-radius: 22px }
-  .don-pop-qr { width: 170px; height: 170px }
-  .don-pop-box h2 { font-size: 1.3rem }
-}
+      25% {
+        transform: rotate(-12deg)
+      }
+
+      75% {
+        transform: rotate(12deg)
+      }
+    }
+
+       .don-pop-box h2 {
+      font-size: 1.5rem;
+      color: var(--h);
+      margin-bottom: 4px;
+    }
+    .don-pop-box h2::after { display: none; }
+
+    .don-pop-sub {
+      color: var(--mut);
+      font-size: .9rem;
+      margin-bottom: 14px;
+    }
+
+    .don-pop-qr {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 14px;
+      padding: 10px;
+      border-radius: 18px;
+      background: #fff;
+      border: 2px dashed var(--bd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: qrPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes qrPulse {
+      0%, 100% { box-shadow: 0 0 0 0 #f28a1d00 }
+      50%      { box-shadow: 0 0 0 10px #f28a1d22 }
+    }
+    .don-pop-qr img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .don-pop-upi-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 0 auto 14px;
+      max-width: 300px;
+      background: var(--band);
+      border-radius: 99px;
+      padding: 6px 6px 6px 16px;
+    }
+    .don-pop-upi {
+      font: 700 1rem "Baloo 2", monospace;
+      color: var(--grn);
+      word-break: break-all;
+      flex: 1;
+      text-align: left;
+    }
+    .don-pop-copy {
+      border: 0;
+      background: var(--grn);
+      color: #fff;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform .2s, background .2s;
+    }
+    .don-pop-copy:hover { transform: scale(1.1) }
+    .don-pop-copy.done { background: var(--saf) }
+
+    .don-pop-btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 8px;
+      animation: pulseBtn 2s ease-in-out infinite;
+    }
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 6px 16px #f28a1d66 }
+      50%      { box-shadow: 0 6px 22px #f28a1dcc }
+    }
+
+    .don-pop-skip {
+      background: none;
+      border: 0;
+      color: var(--mut);
+      font-size: .82rem;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 4px 8px;
+    }
+    .don-pop-skip:hover { color: var(--h) }
+
+    @keyframes popFade {
+      from { opacity: 0 }
+      to   { opacity: 1 }
+    }
+    @keyframes popIn {
+      0%   { opacity: 0; transform: translateY(40px) scale(.85) }
+      100% { opacity: 1; transform: translateY(0) scale(1) }
+    }
+
+    @media (max-width: 400px) {
+      .don-pop-box { padding: 22px 16px 18px; border-radius: 22px }
+      .don-pop-qr { width: 170px; height: 170px }
+      .don-pop-box h2 { font-size: 1.3rem }
+    }
   </style>
-</head>
-
-<body>
-  <div id="prog"></div>
-  <header class="top">
-    <a href="#home" class="brand"><img src="web/fevi.png" alt=""></a>
-    <div class="ctl">
-      <div class="lg">
-        <button data-l="0">हि</button>
-        <button data-l="1">EN</button>
-        <button data-l="2">Hin</button>
+  </head>
+  
+  <body>
+    <div id="prog"></div>
+    <header class="top">
+      <a href="#home" class="brand"><img src="web/fevi.png" alt=""></a>
+      <div class="ctl">
+        <div class="lg">
+          <button data-l="0">हि</button>
+          <button data-l="1">EN</button>
+          <button data-l="2">Hin</button>
+        </div>
+        <button id="th" aria-label="Theme"></button>
       </div>
-      <button id="th" aria-label="Theme"></button>
-    </div>
-    <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
-    <nav id="menu"></nav>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <i class="blob b1"></i><i class="blob b2"></i>
-      <div class="hero-card"><img src="web/logo.png" alt="Nek Pahal Foundation"></div>
-      <h1 data-t="tag"></h1>
-      <div class="row">
-        <a class="btn" href="#donate" data-t="donate"></a>
-        <a class="btn w" href="#volunteer" data-t="vol"></a>
-      </div>
-    </section>
-
-    <div class="stats" id="stats"></div>
-
-    <section id="about" class="sec narrow">
-      <h2 data-t="aboutH"></h2>
-      <p class="sub" data-t="aboutS"></p>
-      <p class="t" data-t="a1"></p>
-      <p class="t" data-t="a2"></p>
-      <div class="cols v3" style="margin-top:20px">
-        <div class="box">
-          <div class="ic">🤝</div>
-          <h3 data-t="v1"></h3>
+      <button class="burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav id="menu"></nav>
+    </header>
+  
+    <main>
+      <section id="home" class="hero">
+        <i class="blob b1"></i><i class="blob b2"></i>
+        <div class="hero-card"><img src="web/logo.png" alt="Nek Pahal Foundation"></div>
+        <h1 data-t="tag"></h1>
+        <div class="row">
+          <a class="btn" href="#donate" data-t="donate"></a>
+          <a class="btn w" href="#volunteer" data-t="vol"></a>
         </div>
-        <div class="box">
-          <div class="ic">❤️</div>
-          <h3 data-t="v2"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">👥</div>
-          <h3 data-t="v3"></h3>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="sec band">
-      <h2 data-t="svcH"></h2>
-      <p class="sub" data-t="svcS"></p>
-      <div class="cols v3">
-        <div class="box">
-          <div class="ic">🧣</div>
-          <h3 data-t="s1"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">🍚</div>
-          <h3 data-t="s2"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">💊</div>
-          <h3 data-t="s3"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">👵</div>
-          <h3 data-t="s4"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">📚</div>
-          <h3 data-t="s5"></h3>
-        </div>
-        <div class="box">
-          <div class="ic">🌱</div>
-          <h3 data-t="s6"></h3>
-        </div>
-      </div>
-    </section>
-
-    <section id="donors" class="sec">
-      <h2 data-t="donH"></h2>
-      <p class="sub" data-t="donS"></p>
-      <div class="slider-wrap">
-        <button class="nav prev" aria-label="Prev">‹</button>
-        <div class="slider" id="slider"></div>
-        <button class="nav next" aria-label="Next">›</button>
-      </div>
-    </section>
-
-    <section id="distribute" class="sec band">
-      <h2 data-t="distH"></h2>
-      <p class="sub" data-t="distS"></p>
-      <div class="grid" id="dist"></div>
-    </section>
-
-    <section id="gallery" class="sec">
-      <h2 data-t="galH"></h2>
-      <p class="sub" data-t="galS"></p>
-      <div class="chips" id="chips"></div>
-      <div class="gal" id="gal"></div>
-    </section>
-
-    <!-- ===== QR DONATION SECTION (NEW) ===== -->
-    <section id="qr-donate" class="sec qr-sec">
-      <h2 data-t="qrH"></h2>
-      <p class="sub" data-t="qrS"></p>
-      <div class="qr-wrap">
-        <div class="qr-card">
-          <div class="qr-img-box">
-            <img id="qrImg" src="web/donation-qr.png" alt="Donation QR Code"
-              onerror="this.onerror=null;this.src='web/qr.png';">
+      </section>
+  
+      <div class="stats" id="stats"></div>
+  
+      <section id="about" class="sec narrow">
+        <h2 data-t="aboutH"></h2>
+        <p class="sub" data-t="aboutS"></p>
+        <p class="t" data-t="a1"></p>
+        <p class="t" data-t="a2"></p>
+        <div class="cols v3" style="margin-top:20px">
+          <div class="box">
+            <div class="ic">🤝</div>
+            <h3 data-t="v1"></h3>
           </div>
-          <h3 data-t="qrScan"></h3>
-          <p class="qr-upi" id="qrUpi"></p>
-          <button class="btn" id="qrCopy" data-t="copy"></button>
+          <div class="box">
+            <div class="ic">❤️</div>
+            <h3 data-t="v2"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">👥</div>
+            <h3 data-t="v3"></h3>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- ===== END QR SECTION ===== -->
-
-    <section id="volunteer" class="sec band">
-      <div class="narrow">
-        <h2 data-t="volH"></h2>
-        <p class="sub" data-t="volS"></p>
-        <form class="f" data-wa="Volunteer">
+      </section>
+  
+      <section id="services" class="sec band">
+        <h2 data-t="svcH"></h2>
+        <p class="sub" data-t="svcS"></p>
+        <div class="cols v3">
+          <div class="box">
+            <div class="ic">🧣</div>
+            <h3 data-t="s1"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">🍚</div>
+            <h3 data-t="s2"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">💊</div>
+            <h3 data-t="s3"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">👵</div>
+            <h3 data-t="s4"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">📚</div>
+            <h3 data-t="s5"></h3>
+          </div>
+          <div class="box">
+            <div class="ic">🌱</div>
+            <h3 data-t="s6"></h3>
+          </div>
+        </div>
+      </section>
+  
+      <section id="donors" class="sec">
+        <h2 data-t="donH"></h2>
+        <p class="sub" data-t="donS"></p>
+        <div class="slider-wrap">
+          <button class="nav prev" aria-label="Prev">‹</button>
+          <div class="slider" id="slider"></div>
+          <button class="nav next" aria-label="Next">›</button>
+        </div>
+      </section>
+  
+      <section id="distribute" class="sec band">
+        <h2 data-t="distH"></h2>
+        <p class="sub" data-t="distS"></p>
+        <div class="grid" id="dist"></div>
+      </section>
+  
+      <section id="gallery" class="sec">
+        <h2 data-t="galH"></h2>
+        <p class="sub" data-t="galS"></p>
+        <div class="chips" id="chips"></div>
+        <div class="gal" id="gal"></div>
+      </section>
+  
+      <!-- ===== QR DONATION SECTION ===== -->
+      <section id="qr-donate" class="sec qr-sec">
+        <h2 data-t="qrH"></h2>
+        <p class="sub" data-t="qrS"></p>
+        <div class="qr-wrap">
+          <div class="qr-card">
+            <div class="qr-img-box">
+              <img id="qrImg" src="web/donation-qr.png" alt="Donation QR Code"
+                onerror="this.onerror=null;this.src='web/qr.png';">
+            </div>
+            <h3 data-t="qrScan"></h3>
+            <p class="qr-upi" id="qrUpi"></p>
+            <button class="btn" id="qrCopy" data-t="copy"></button>
+          </div>
+        </div>
+      </section>
+  
+      <section id="volunteer" class="sec band">
+        <div class="narrow">
+          <h2 data-t="volH"></h2>
+          <p class="sub" data-t="volS"></p>
+          <form class="f" data-wa="Volunteer">
+            <label><span data-t="fName"></span><input name="Name" required></label>
+            <label><span data-t="fMobile"></span><input name="Mobile" type="tel" required></label>
+            <label><span data-t="fPlace"></span><input name="Place"></label>
+            <label><span data-t="fHelp"></span><input name="Help"></label>
+            <button class="btn n" data-t="send"></button>
+          </form>
+        </div>
+      </section>
+  
+      <section id="donate" class="sec don">
+        <h2 data-t="donaH"></h2>
+        <p class="sub" data-t="donaS"></p>
+        <div class="upi-box">
+          <h3 data-t="upiH"></h3>
+          <p class="upi" id="upiId"></p>
+          <img class="qr" src="web/qr.png" alt="QR" onerror="this.remove()">
+          <button class="btn" id="copyUpi" data-t="copy"></button>
+        </div>
+        <p class="t" data-t="after"></p>
+        <form class="f" data-wa="Donation" style="color:var(--ink)">
           <label><span data-t="fName"></span><input name="Name" required></label>
-          <label><span data-t="fMobile"></span><input name="Mobile" type="tel" required></label>
-          <label><span data-t="fPlace"></span><input name="Place"></label>
-          <label><span data-t="fHelp"></span><input name="Help"></label>
+          <label><span data-t="fAmt"></span><input name="Amount" type="number" required></label>
+          <button class="btn" data-t="tell"></button>
+        </form>
+      </section>
+  
+      <section id="contact" class="sec narrow">
+        <h2 data-t="conH"></h2>
+        <p class="sub" data-t="conS"></p>
+        <div class="box" style="margin-bottom:16px">
+          <h3 data-t="addr"></h3>
+          <p data-t="addrV"></p>
+        </div>
+        <form class="f" data-wa="Contact">
+          <label><span data-t="fName"></span><input name="Name" required></label>
+          <label><span data-t="fMsg"></span><textarea name="Message" rows="4" required></textarea></label>
           <button class="btn n" data-t="send"></button>
         </form>
-      </div>
-    </section>
-
-    <section id="donate" class="sec don">
-      <h2 data-t="donaH"></h2>
-      <p class="sub" data-t="donaS"></p>
-      <div class="upi-box">
-        <h3 data-t="upiH"></h3>
-        <p class="upi" id="upiId"></p>
-        <img class="qr" src="web/qr.png" alt="QR" onerror="this.remove()">
-        <button class="btn" id="copyUpi" data-t="copy"></button>
-      </div>
-      <p class="t" data-t="after"></p>
-      <form class="f" data-wa="Donation" style="color:var(--ink)">
-        <label><span data-t="fName"></span><input name="Name" required></label>
-        <label><span data-t="fAmt"></span><input name="Amount" type="number" required></label>
-        <button class="btn" data-t="tell"></button>
-      </form>
-    </section>
-    <section id="contact" class="sec narrow">
-      <h2 data-t="conH"></h2>
-      <p class="sub" data-t="conS"></p>
-      <div class="box" style="margin-bottom:16px">
-        <h3 data-t="addr"></h3>
-        <p data-t="addrV"></p>
-      </div>
-      <form class="f" data-wa="Contact">
-        <label><span data-t="fName"></span><input name="Name" required></label>
-        <label><span data-t="fMsg"></span><textarea name="Message" rows="4" required></textarea></label>
-        <button class="btn n" data-t="send"></button>
-      </form>
-    </section>
+      </section>
     </main>
-    
-    <footer>
-      <img src="web/footer.png" alt="Nek Pahal Foundation">
-      <div class="fl" id="flinks"></div>
-      <p>© <span id="yr"></span> <span data-t="brand"></span> · <span data-t="rights"></span></p>
-    </footer>
+  
+      <footer>
+        <img src="web/footer.png" alt="Nek Pahal Foundation">
+        <div class="fl" id="flinks"></div>
+      
+        <!-- ===== SOCIAL + DEVELOPER CREDIT ===== -->
+        <div class="social">
+          <a href="https://www.instagram.com/nekpahalfoundation?srtk=MWZldDgwcTk3eGlqbA%3D%3D&utm_source=qr" target="_blank"
+            rel="noopener" aria-label="Instagram">
+            Nek Pahal Foundation
+          </a>
+        </div>
+      
+        <p>© <span id="yr"></span> <span data-t="brand"></span> · <span data-t="rights"></span></p>
+      
+        <p class="dev-credit">
+          Developed by
+          <a href="https://www.instagram.com/ashutoshkutar80" target="_blank" rel="noopener">@AshutoshKutar</a>
+        </p>
+        <!-- ===== END SOCIAL + CREDIT ===== -->
+      </footer>
+  
     <a class="fab" href="#donate" data-t="donate"></a>
-    
+  
     <div id="lb" hidden>
       <button class="lb-b lb-x" aria-label="Close">✕</button>
       <button class="lb-b lb-p" aria-label="Prev">‹</button>
@@ -1643,30 +1733,30 @@
       <div class="lbs"></div>
       <div class="lbc"></div>
     </div>
-
-    <!-- ===== DONATION POPUP (on load) ===== -->
+  
+    <!-- ===== DONATION POPUP ===== -->
     <div id="donPop" class="don-pop" hidden>
       <div class="don-pop-box">
         <button class="don-pop-x" aria-label="Close">✕</button>
         <div class="don-pop-emoji">🙏</div>
         <h2 data-t="popH"></h2>
         <p class="don-pop-sub" data-t="popS"></p>
-    
+  
         <div class="don-pop-qr">
           <img src="web/donation-qr.png" alt="Donation QR" onerror="this.onerror=null;this.src='web/qr.png';">
         </div>
-    
+  
         <div class="don-pop-upi-row">
           <span class="don-pop-upi" id="popUpi"></span>
           <button class="don-pop-copy" id="popCopy" aria-label="Copy">📋</button>
         </div>
-    
+  
         <a href="#donate" class="btn don-pop-btn" id="popGo" data-t="popBtn"></a>
         <button class="don-pop-skip" id="popSkip" data-t="popSkip"></button>
       </div>
     </div>
     <!-- ===== END DONATION POPUP ===== -->
-    
+  
     <script src="data.js"></script>
     <script>
       const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -1678,7 +1768,7 @@
       const fdate = s => new Date(s).toLocaleDateString(lang === 0 ? "hi-IN" : "en-IN", { day: "numeric", month: "long", year: "numeric" });
       const img = (s, a) => `<img src="${s}" alt="${a}" loading="lazy" onerror="this.onerror=null;this.src='web/logo.png';this.style.objectFit='contain'">`;
 
-      /* ---- albums: photos prefix1.png ... prefixN.png (jo mile wahi) ---- */
+      /* ---- albums ---- */
       const probe = s => new Promise(r => { const i = new Image(); i.onload = () => r(s); i.onerror = () => r(null); i.src = s; });
       const photosOf = d => Promise.all(Array.from({ length: d.count || 1 }, (_, i) => probe(`${d.folder}/${d.prefix}${i + 1}.png`))).then(a => a.filter(Boolean));
       let ALB = [], flt = -1, counted = false;
@@ -1741,7 +1831,7 @@
       }
       addEventListener("scroll", () => $("#prog").style.transform = `scaleX(${scrollY / (document.documentElement.scrollHeight - innerHeight || 1)})`, { passive: true });
 
-      /* ---- clicks (gallery, chips, dist cards) ---- */
+      /* ---- clicks ---- */
       document.addEventListener("click", e => {
         const c = e.target.closest(".chip"); if (c) { flt = +c.dataset.f; render(); return; }
         const g = e.target.closest(".g"); if (g) return openLB(flat(), +g.dataset.i);
@@ -1756,66 +1846,47 @@
       ["pointerup", "mouseleave"].forEach(e => sl.addEventListener(e, () => setTimeout(() => paused = false, 2500)));
       if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => { if (paused) return; sl.scrollLeft + sl.clientWidth >= sl.scrollWidth - 5 ? sl.scrollTo({ left: 0, behavior: "smooth" }) : sl.scrollBy({ left: step(), behavior: "smooth" }); }, 3000);
 
-      /* ---- forms -> WhatsApp, copy UPI ---- */
+      /* ---- forms + copy ---- */
       $$("form[data-wa]").forEach(f => f.onsubmit = e => { e.preventDefault(); const t = [...f.elements].filter(x => x.name && x.value).map(x => `${x.name}: ${x.value}`).join("\n"); open(`https://wa.me/${PHONE}?text=${encodeURIComponent(f.dataset.wa + "\n" + t)}`, "_blank"); });
       $("#copyUpi").onclick = () => navigator.clipboard.writeText(UPI).then(() => { $("#copyUpi").textContent = T.copied[lang]; setTimeout(() => $("#copyUpi").textContent = T.copy[lang], 2000); });
-
-      /* ---- QR section UPI + copy (NEW) ---- */
       $("#qrUpi").textContent = UPI;
       $("#qrCopy").onclick = () => navigator.clipboard.writeText(UPI).then(() => {
         $("#qrCopy").textContent = T.copied[lang];
         setTimeout(() => $("#qrCopy").textContent = T.copy[lang], 2000);
       });
 
-      /* ---- DONATION POPUP (on load) ---- */
-        (function initDonPopup() {
-          const pop = $("#donPop");
-          const popUpi = $("#popUpi");
-          const popCopy = $("#popCopy");
-          const popGo = $("#popGo");
-          const popSkip = $("#popSkip");
-          const popX = $(".don-pop-x");
-          if (!pop) return;
-
-          popUpi.textContent = UPI;
-
-          const KEY = "donPopDismissed";
-          const last = +LS.get(KEY) || 0;
-          const H24 = 24 * 60 * 60 * 1000;
-
-          // Show only if not dismissed in last 24 hours
-          if (Date.now() - last > H24) {
-            setTimeout(() => { pop.hidden = false; document.body.style.overflow = "hidden"; }, 1500);
-          }
-
-          const close = (remember) => {
-            pop.hidden = true;
-            document.body.style.overflow = "";
-            if (remember) LS.set(KEY, Date.now());
-          };
-
-          popX.onclick = () => close(true);
-          popSkip.onclick = () => close(true);
-          pop.addEventListener("click", e => { if (e.target === pop) close(true); });
-
-          // Jump to donate section → close popup (no 24h block)
-          popGo.addEventListener("click", () => close(false));
-
-          // Copy UPI inside popup
-          popCopy.onclick = () => navigator.clipboard.writeText(UPI).then(() => {
-            popCopy.textContent = "✓";
-            popCopy.classList.add("done");
-            setTimeout(() => {
-              popCopy.textContent = "📋";
-              popCopy.classList.remove("done");
-            }, 1600);
-          });
-
-          // ESC to close
-          addEventListener("keydown", e => {
-            if (!pop.hidden && e.key === "Escape") close(true);
-          });
-        })();
+      /* ---- DONATION POPUP ---- */
+      (function initDonPopup() {
+        const pop = $("#donPop");
+        const popUpi = $("#popUpi");
+        const popCopy = $("#popCopy");
+        const popGo = $("#popGo");
+        const popSkip = $("#popSkip");
+        const popX = $(".don-pop-x");
+        if (!pop) return;
+        popUpi.textContent = UPI;
+        const KEY = "donPopDismissed";
+        const last = +LS.get(KEY) || 0;
+        const H24 = 24 * 60 * 60 * 1000;
+        if (Date.now() - last > H24) {
+          setTimeout(() => { pop.hidden = false; document.body.style.overflow = "hidden"; }, 1500);
+        }
+        const close = (remember) => {
+          pop.hidden = true;
+          document.body.style.overflow = "";
+          if (remember) LS.set(KEY, Date.now());
+        };
+        popX.onclick = () => close(true);
+        popSkip.onclick = () => close(true);
+        pop.addEventListener("click", e => { if (e.target === pop) close(true); });
+        popGo.addEventListener("click", () => close(false));
+        popCopy.onclick = () => navigator.clipboard.writeText(UPI).then(() => {
+          popCopy.textContent = "✓";
+          popCopy.classList.add("done");
+          setTimeout(() => { popCopy.textContent = "📋"; popCopy.classList.remove("done"); }, 1600);
+        });
+        addEventListener("keydown", e => { if (!pop.hidden && e.key === "Escape") close(true); });
+      })();
 
       /* ---- start ---- */
       setTh(th); setLang(lang);
@@ -1824,6 +1895,6 @@
         render();
       })();
     </script>
-    </body>
-    
-    </html>
+  </body>
+  
+  </html>
