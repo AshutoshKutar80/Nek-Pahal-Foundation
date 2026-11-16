@@ -10,6 +10,7 @@ const DONORS = [
   { name: "अरविंद सिंह(बीरू), बबीना",      amount: 2100,  date: "2026-11-09", image: "donate/2.png" },
   { name: "प्रेम कुमार", amount: 2000, date: "2026-11-01", image: "donate/1.png" },
   { name: "दुर्गेश कुमार, कुरारा",       amount: 3100, date: "2026-11-05", image: "donate/3.png" },
+  { name: "संस्कार", amount: 7000, date: "2026-11-15", image: "donate/4.png" },
 ];
 
 /* ===== DISTRIBUTION: prefix "kurara", count 9 -> distribute/kurara1.png ... kurara9.png ===== */
@@ -26,6 +27,20 @@ const DISTS = [
       prefix: "kurara",
       count: 7
   },
+  const DISTS = [
+    {
+        title: ["राशन वितरण", "Ration Distribution", "Rashan Vitran"],
+        location: ["कुरारा, हमीरपुर", "Kurara, Hamirpur", "Kurara, Hamirpur"],
+        date: "2026-11-15",
+        desc: [
+            "संस्कार के जन्मदिन के शुभ अवसर पर नेक पहल फाउंडेशन द्वारा 14 बुज़ुर्गों को आवश्यक राशन सामग्री वितरित की गई।",
+            "On the occasion of Sanskar's birthday, essential ration supplies were distributed to 14 elderly people by Nek Pahal Foundation.",
+            "Sanskar ke birthday ke shubh avsar par Nek Pahal Foundation dwara 14 buzurgon ko zaroori rashan samagri vitrit ki gayi."
+        ],
+        prefix: "birthday",
+        count: 5
+    },
+];
 ];
 
 /* ===== EXTRA GALLERY ALBUMS: gallery/mela1.png ... (optional, khali chhod sakte ho) ===== */
